@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Link, Redirect } from 'react-router-dom';
 
-const Home = () => <h1>home</h1>;
-const Menu = () => <h1>menu</h1>;
-const Cart = () => <h1>cart</h1>;
+import { Cart } from '../Cart';
+import { Home } from '../Home';
+import { Menu } from '../Menu';
 
 export class App extends React.Component {
   render() {
