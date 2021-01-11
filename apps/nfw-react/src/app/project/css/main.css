@@ -1,4 +1,50 @@
 * {
   box-sizing: border-box;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  text-decoration: none; }
+
+h1 {
+  font-size: 3.5rem;
+  color: maroon; }
+
+h2 {
+  font-size: 2.8rem;
+  color: maroon; }
+
+a {
+  font-size: 2.5rem;
+  color: #ffc82f; }
+
+.container {
+  min-height: 100vh;
+  background: white; }
+
+.homeContainer {
+  display: grid;
+  grid-template-columns: 100px auto 100px;
+  grid-template-rows: 30% 90px 60px auto;
+  height: 88vh; }
+
+.firstHomeH {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: row1-start;
+  grid-row-end: 2;
+  justify-self: center; }
+
+.secondHomeH {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: row2-start;
+  grid-row-end: 3;
+  justify-self: center; }
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 12vh;
+  background-color: maroon;
+  top: 0;
+  left: 0; }

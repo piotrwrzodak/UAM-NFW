@@ -2,8 +2,30 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 3.5rem;
+  color: maroon;
+}
+
+h2 {
+  font-size: 2.8rem;
+  color: maroon;
+}
+
+a {
+  font-size: 2.5rem;
+  color: rgb(255, 200, 47);
+}
+
+.container {
+  min-height: 100vh;
+  background: white;
 }
 
 @import './Cart/cart';
 @import './Home/home';
 @import './Menu/menu';
+@import './Nav/nav';
