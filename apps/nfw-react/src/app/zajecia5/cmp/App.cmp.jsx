@@ -1,31 +1,42 @@
-import React from 'react';
-import { compose, bindActionCreators } from 'redux';
+import React, { useEffect } from 'react';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import { anotherAction, testAction } from '../store/features/example/actions';
+import { Tabs } from './Tabs.cmp';
 
-// Cmp part
-const App = ({ a, b, c }) => {
+import { initialize } from '../store/root.actions';
+import { selectIngredientsById } from '../store/data/ingredient/ingredient.selectors';
+import { selectPizzasById } from '../store/data/pizza/pizza.selectors';
+
+// Component part
+const App = (props) => {
+  
+  useEffect(() => {
+    props.init() // to request all necessary data once using worker
+  }, []);
+
   return (
-    <h1 onClick={() => c(4)}>
-      App Zajecia 5: {a}
-    </h1>
+    // Example how to use RenderProps approach
+    <Tabs
+      elements={[1,2,3]}
+      renderTab={tabId => <p>Tab {tabId}</p>}
+    >
+      {(value) => <p>{value ? `Tab ${value}` : 'Not selected'}</p>}
+    </Tabs>
   )
 }
 
 // Container part
 const mapState = (state, ownProps) => ({
-  a: state.ui.example.value,
+  ingredientsById: selectIngredientsById(state),
+  pizzasById: selectPizzasById(state),
 });
 
 const mapDispatch = (dispatch, ownProps) => ({
-  b: () => dispatch(testAction),
-  c: value => dispatch(anotherAction(value)),
-})
-
-const mergeProps = (ownProps, stateProps, dispatchProps) => Object.assign({}, ownProps, stateProps, dispatchProps)
+  init: () => dispatch(initialize),
+});
 
 // Enhance part
 export default compose(
-  connect(mapState, mapDispatch, mergeProps)
+  connect(mapState, mapDispatch)
 )(App)
