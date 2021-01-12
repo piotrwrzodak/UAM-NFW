@@ -7,9 +7,11 @@ export const Home = () => {
   return (
     <div>
       <Nav />
-      <div className="homeContainer">
-        <h1 className="firstHomeH">Welcome to LoremIpsum!</h1>
-        <Link to="/menu" className="secondHomeH">Place an order</Link>
+      <div className="home-container">
+        <h1 className="first-heading">Welcome to LoremIpsum!</h1>
+        <Link to="/menu" className="second-heading">
+          Place an order
+        </Link>
       </div>
     </div>
   );

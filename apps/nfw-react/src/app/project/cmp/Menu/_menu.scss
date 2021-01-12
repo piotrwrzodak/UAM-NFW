@@ -27,11 +27,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color:  rgb(255, 200, 47);
+    background-color:  $primary-color;
 }
 
 .pizza-item {
     margin: 5px;
     font-size: 1.5rem;
-    color:maroon;
+    color:$secondary-color;
 }
