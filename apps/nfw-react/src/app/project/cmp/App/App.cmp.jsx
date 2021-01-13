@@ -1,18 +1,21 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import { Cart } from '../Cart';
 import { Home } from '../Home';
 import { Menu } from '../Menu';
 
-export const App = () => {
+export const App = (props) => {
   const [pizzas, setPizzas] = useState([]);
   useEffect(() => {
     fetch('http://localhost:3333/api/pizza')
-      .then(r => r.json())
-      .then(pizzas => setPizzas(pizzas))
+      .then((r) => r.json())
+      .then((pizzas) => setPizzas(pizzas));
   }, []);
 
+  useEffect(() => {
+    props.init();
+  }, []);
 
   return (
     <div className="container">
@@ -20,7 +23,7 @@ export const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/menu">
-            <Menu pizzas={pizzas}/>
+            <Menu pizzas={pizzas} />
           </Route>
           <Route path="/cart" component={Cart} />
 
@@ -29,6 +32,6 @@ export const App = () => {
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
