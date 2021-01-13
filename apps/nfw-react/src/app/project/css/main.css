@@ -46,7 +46,8 @@
 .menu__heading {
   grid-area: heading;
   justify-self: center;
-  align-self: center; }
+  align-self: center;
+  color: maroon; }
 
 .menu__list {
   grid-area: menuarea;

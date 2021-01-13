@@ -6,9 +6,9 @@ export const Nav = () => {
   return (
     <>
       <div className={navOpen ? "hamburger close" : "hamburger"} onClick={() => setNavOpen(!navOpen)}>
-        <div class="btn-line"></div>
-        <div class="btn-line"></div>
-        <div class="btn-line"></div>
+        <div className="btn-line"></div>
+        <div className="btn-line"></div>
+        <div className="btn-line"></div>
       </div>
       <div className={navOpen ? "nav show" : "nav"} >
         <Link to="/" className="nav__link">
