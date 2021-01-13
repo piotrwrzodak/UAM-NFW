@@ -38,7 +38,7 @@
 
 .menu {
   display: grid;
-  grid-template-columns: 150px auto 150px;
+  grid-template-columns: 20px auto 20px;
   grid-template-rows: 6rem auto;
   grid-template-areas: ". heading ." ". menuarea .";
   min-height: 88vh; }
@@ -47,16 +47,17 @@
   grid-area: heading;
   justify-self: center;
   align-self: center;
+  font-size: 2.5rem;
   color: maroon; }
 
 .menu__list {
   grid-area: menuarea;
   justify-self: stretch;
   list-style-type: none;
-  width: 60%;
-  min-width: 300px;
-  margin: 0 auto;
-  padding: 1rem;
+  width: 70%;
+  min-width: 260px;
+  margin: 0 auto 3rem;
+  padding: 0.5rem 1rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -64,9 +65,23 @@
   background-color: #ffc82f; }
 
 .pizza-item {
-  margin: 5px;
-  font-size: 1.5rem;
+  margin: 7px;
+  font-size: 1.3rem;
   color: maroon; }
+
+@media all and (min-width: 500px) {
+  .menu {
+    grid-template-columns: 50px auto 50px;
+    grid-template-rows: 6rem auto; }
+  .menu__list {
+    width: 60%;
+    min-width: 370px;
+    margin: 0 auto 3rem;
+    padding: 1rem 1rem 2rem; }
+  .menu__heading {
+    font-size: 3rem; }
+  .pizza-item {
+    font-size: 1.6rem; } }
 
 .nav {
   position: fixed;
@@ -125,3 +140,17 @@
     font-size: 3rem; }
   .hamburger {
     display: none; } }
+
+.pizza-ingredient {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; }
+
+.pizza-ingredient__item {
+  margin: 0 3px 5px;
+  color: #3e5c25;
+  font-size: 0.9rem; }
+
+@media all and (min-width: 500px) {
+  .pizza-ingredient__item {
+    font-size: 1.4rem; } }
