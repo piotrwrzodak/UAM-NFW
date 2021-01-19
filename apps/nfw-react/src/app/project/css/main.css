@@ -23,6 +23,41 @@
   .second-heading {
     font-size: 3rem; } }
 
+.cart {
+  display: grid;
+  grid-template-columns: 30px auto 30px;
+  grid-template-rows: 10vh 6rem 60vh auto;
+  grid-template-areas: '. . .' '. cart_heading .' '. cart_list .' '. . .'; }
+
+.cart__list {
+  grid-area: cart_list;
+  justify-self: stretch;
+  list-style-type: none;
+  min-width: 260px;
+  padding: 0.5rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffc82f; }
+
+.cart__heading {
+  grid-area: cart_heading;
+  justify-self: center;
+  align-self: center;
+  font-size: 2.5rem;
+  color: maroon; }
+
+@media all and (min-width: 500px) {
+  .cart {
+    grid-template-columns: 50px auto 50px;
+    grid-template-rows: 6vh 6rem 50vh auto; }
+  .cart__list {
+    width: 60%;
+    min-width: 370px;
+    padding: 1rem 1rem 2rem;
+    margin: 0 auto; } }
+
 .home-container {
   height: 100vh;
   display: flex;
@@ -38,10 +73,10 @@
 
 .menu {
   display: grid;
-  grid-template-columns: 20px auto 20px;
-  grid-template-rows: 6rem auto 6rem auto;
-  grid-template-areas: '. pizza_heading .' '. menu_pizza .' '. sauce_heading .' '. menu_sauce .';
-  min-height: 88vh; }
+  grid-template-columns: 30px auto 30px;
+  grid-template-rows: 10vh 6rem auto 6rem auto;
+  grid-template-areas: '. . .' '. pizza_heading .' '. menu_pizza .' '. sauce_heading .' '. menu_sauce .';
+  min-height: 100vh; }
 
 .menu__heading {
   justify-self: center;
@@ -58,7 +93,6 @@
 .menu__list {
   justify-self: stretch;
   list-style-type: none;
-  width: 70%;
   min-width: 260px;
   padding: 0.5rem 1rem 1rem;
   display: flex;
@@ -68,12 +102,11 @@
   background-color: #ffc82f; }
 
 .menu__list--pizza {
-  grid-area: menu_pizza;
-  margin: 0 auto; }
+  grid-area: menu_pizza; }
 
 .menu__list--sauce {
   grid-area: menu_sauce;
-  margin: 0 auto 3rem; }
+  margin: 0 0 3rem; }
 
 .pizza-item,
 .sauce {
@@ -84,7 +117,8 @@
 @media all and (min-width: 500px) {
   .menu {
     grid-template-columns: 50px auto 50px;
-    grid-template-rows: 6rem auto 6rem auto; }
+    grid-template-rows: 6rem auto 6rem auto;
+    grid-template-areas: '. pizza_heading .' '. menu_pizza .' '. sauce_heading .' '. menu_sauce .'; }
   .menu__list {
     width: 60%;
     min-width: 370px;
@@ -92,7 +126,11 @@
   .menu__heading {
     font-size: 3rem; }
   .pizza-item {
-    font-size: 1.6rem; } }
+    font-size: 1.6rem; }
+  .menu__list--pizza {
+    margin: 0 auto; }
+  .menu__list--sauce {
+    margin: 0 auto 3rem; } }
 
 .nav {
   position: fixed;
@@ -118,7 +156,7 @@
 .hamburger {
   z-index: 1;
   right: 30px;
-  top: 22px;
+  top: 30px;
   position: absolute;
   cursor: pointer;
   transition: 0.5s ease-out; }
