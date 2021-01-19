@@ -1,21 +1,29 @@
 .menu {
   display: grid;
   grid-template-columns: 20px auto 20px;
-  grid-template-rows: 6rem auto;
+  grid-template-rows: 6rem auto 6rem auto;
 
   grid-template-areas:
-    '. heading .'
-    '. menupizza .'
-    '. menusauce .';
+    '. pizza_heading .'
+    '. menu_pizza .'
+    '. sauce_heading .'
+    '. menu_sauce .';
   min-height: 88vh;
 }
 
 .menu__heading {
-  grid-area: heading;
   justify-self: center;
   align-self: center;
   font-size: 2.5rem;
   color: $secondary-color;
+}
+
+.menu__heading--pizza {
+  grid-area: pizza_heading;
+}
+
+.menu__heading--sauce {
+  grid-area: sauce_heading;
 }
 
 .menu__list {
@@ -23,7 +31,6 @@
   list-style-type: none;
   width: 70%;
   min-width: 260px;
-  margin: 0 auto 3rem;
   padding: 0.5rem 1rem 1rem;
   display: flex;
   flex-direction: column;
@@ -33,14 +40,17 @@
 }
 
 .menu__list--pizza {
-  grid-area: menupizza;
+  grid-area: menu_pizza;
+  margin: 0 auto;
 }
 
 .menu__list--sauce {
-  grid-area: menusauce;
+  grid-area: menu_sauce;
+  margin: 0 auto 3rem;
 }
 
-.pizza-item {
+.pizza-item,
+.sauce {
   margin: 7px;
   font-size: 1.3rem;
   color: $secondary-color;
@@ -49,13 +59,12 @@
 @media all and (min-width: 500px) {
   .menu {
     grid-template-columns: 50px auto 50px;
-    grid-template-rows: 6rem auto;
+    grid-template-rows: 6rem auto 6rem auto;
   }
 
   .menu__list {
     width: 60%;
     min-width: 370px;
-    margin: 0 auto 3rem;
     padding: 1rem 1rem 2rem;
   }
 

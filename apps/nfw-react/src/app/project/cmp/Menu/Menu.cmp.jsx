@@ -9,8 +9,9 @@ export const Menu = () => {
     <>
       <Nav />
       <div className="menu">
-        <h1 className="menu__heading">Pizza</h1>
+        <h1 className="menu__heading menu__heading--pizza">Pizza</h1>
         <PizzaList />
+        <h1 className="menu__heading menu__heading--sauce">Sauce</h1>
         <SauceList />
       </div>
     </>
