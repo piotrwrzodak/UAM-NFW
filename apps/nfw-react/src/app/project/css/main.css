@@ -40,7 +40,7 @@
   display: grid;
   grid-template-columns: 20px auto 20px;
   grid-template-rows: 6rem auto;
-  grid-template-areas: ". heading ." ". menuarea .";
+  grid-template-areas: '. heading .' '. menupizza .' '. menusauce .';
   min-height: 88vh; }
 
 .menu__heading {
@@ -51,7 +51,6 @@
   color: maroon; }
 
 .menu__list {
-  grid-area: menuarea;
   justify-self: stretch;
   list-style-type: none;
   width: 70%;
@@ -63,6 +62,12 @@
   justify-content: center;
   align-items: center;
   background-color: #ffc82f; }
+
+.menu__list--pizza {
+  grid-area: menupizza; }
+
+.menu__list--sauce {
+  grid-area: menusauce; }
 
 .pizza-item {
   margin: 7px;

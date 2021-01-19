@@ -1,9 +1,6 @@
 import React from 'react';
-import { store } from '../../store';
 
-export const PizzaItem = ({ pizza }) => {
-  const state = store.getState();
-
+export const PizzaItem = ({ pizza, ingredients }) => {
   return (
     <>
       <li className="pizza-item">
@@ -14,7 +11,7 @@ export const PizzaItem = ({ pizza }) => {
         <ul className="pizza-ingredient">
           {pizza.ingredients.map((i) => (
             <li className="pizza-ingredient__item" key={i}>
-              {state.data.ingredient.byId[i]?.name}
+              {ingredients.byId[i]?.name}
             </li>
           ))}
         </ul>

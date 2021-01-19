@@ -5,9 +5,13 @@ import { PizzaItem } from '../PizzaItem';
 export const PizzaList = () => {
   const state = store.getState();
   return (
-    <ul className="menu__list">
+    <ul className="menu__list menu__list--pizza">
       {state.data.pizza.allIds.map((id) => (
-        <PizzaItem key={id} pizza={state.data.pizza.byId[id]} />
+        <PizzaItem
+          key={id}
+          pizza={state.data.pizza.byId[id]}
+          ingredients={state.data.ingredient}
+        />
       ))}
     </ul>
   );
