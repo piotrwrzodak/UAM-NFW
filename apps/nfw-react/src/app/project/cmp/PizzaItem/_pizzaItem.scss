@@ -1,10 +1,37 @@
-.pizza-ingredient {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+.pizza-item {
+  width: 100%;
+  margin: 2px 0;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten($primary-color, 10%);
+  }
+
+  &--selected {
+    background-color: lighten($primary-color, 10%);
+  }
+
+  &__open {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+
+  &__name {
+    margin: 7px;
+    text-align: center;
+    font-size: 1.3rem;
+    color: $secondary-color;
+  }
+
+  &__ingredients {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
-.pizza-ingredient__item {
+.ingredient {
   margin: 0 3px 5px;
   color: $tertiary-color;
   font-size: 0.9rem;
@@ -13,5 +40,11 @@
 @media all and (min-width: 500px) {
   .pizza-ingredient__item {
     font-size: 1.4rem;
+  }
+  .pizza-item__name {
+    font-size: 1.6rem;
+  }
+  .ingredient {
+    font-size: 1.3rem;
   }
 }

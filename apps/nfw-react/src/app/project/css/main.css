@@ -17,6 +17,14 @@
   min-height: 100vh;
   background: white; }
 
+.button {
+  color: white;
+  background-color: #3e5c25;
+  height: 1.9rem;
+  width: 7rem;
+  margin: 5px;
+  cursor: pointer; }
+
 @media all and (min-width: 500px) {
   .first-heading {
     font-size: 3.5rem; }
@@ -77,60 +85,46 @@
   grid-template-rows: 10vh 6rem auto 6rem auto;
   grid-template-areas: '. . .' '. pizza_heading .' '. menu_pizza .' '. sauce_heading .' '. menu_sauce .';
   min-height: 100vh; }
-
-.menu__heading {
-  justify-self: center;
-  align-self: center;
-  font-size: 2.5rem;
-  color: maroon; }
-
-.menu__heading--pizza {
-  grid-area: pizza_heading; }
-
-.menu__heading--sauce {
-  grid-area: sauce_heading; }
-
-.menu__list {
-  justify-self: stretch;
-  list-style-type: none;
-  min-width: 260px;
-  padding: 0.5rem 1rem 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffc82f; }
-
-.menu__list--pizza {
-  grid-area: menu_pizza; }
-
-.menu__list--sauce {
-  grid-area: menu_sauce;
-  margin: 0 0 3rem; }
-
-.pizza-item,
-.sauce {
-  margin: 7px;
-  font-size: 1.3rem;
-  color: maroon; }
+  .menu__heading {
+    justify-self: center;
+    align-self: center;
+    font-size: 2.5rem;
+    color: maroon; }
+    .menu__heading--pizza {
+      grid-area: pizza_heading; }
+    .menu__heading--sauce {
+      grid-area: sauce_heading; }
+  .menu__list {
+    justify-self: stretch;
+    list-style-type: none;
+    min-width: 260px;
+    padding: 0.5rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffc82f; }
+    .menu__list--pizza {
+      grid-area: menu_pizza; }
+    .menu__list--sauce {
+      grid-area: menu_sauce;
+      margin: 0 0 3rem; }
 
 @media all and (min-width: 500px) {
   .menu {
     grid-template-columns: 50px auto 50px;
     grid-template-rows: 6rem auto 6rem auto;
     grid-template-areas: '. pizza_heading .' '. menu_pizza .' '. sauce_heading .' '. menu_sauce .'; }
-  .menu__list {
-    width: 60%;
-    min-width: 370px;
-    padding: 1rem 1rem 2rem; }
-  .menu__heading {
-    font-size: 3rem; }
-  .pizza-item {
-    font-size: 1.6rem; }
-  .menu__list--pizza {
-    margin: 0 auto; }
-  .menu__list--sauce {
-    margin: 0 auto 3rem; } }
+    .menu__list {
+      width: 60%;
+      min-width: 370px;
+      padding: 1rem 1rem 2rem; }
+      .menu__list--pizza {
+        margin: 0 auto; }
+      .menu__list--sauce {
+        margin: 0 auto 3rem; }
+    .menu__heading {
+      font-size: 3rem; } }
 
 .nav {
   position: fixed;
@@ -190,16 +184,49 @@
   .hamburger {
     display: none; } }
 
-.pizza-ingredient {
-  display: flex;
-  flex-direction: row;
-  justify-content: center; }
+.pizza-item {
+  width: 100%;
+  margin: 2px 0;
+  cursor: pointer; }
+  .pizza-item:hover {
+    background-color: #ffd562; }
+  .pizza-item--selected {
+    background-color: #ffd562; }
+  .pizza-item__open {
+    display: flex;
+    justify-content: center;
+    align-content: center; }
+  .pizza-item__name {
+    margin: 7px;
+    text-align: center;
+    font-size: 1.3rem;
+    color: maroon; }
+  .pizza-item__ingredients {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
 
-.pizza-ingredient__item {
+.ingredient {
   margin: 0 3px 5px;
   color: #3e5c25;
   font-size: 0.9rem; }
 
 @media all and (min-width: 500px) {
   .pizza-ingredient__item {
-    font-size: 1.4rem; } }
+    font-size: 1.4rem; }
+  .pizza-item__name {
+    font-size: 1.6rem; }
+  .ingredient {
+    font-size: 1.3rem; } }
+
+.sauce {
+  width: 100%;
+  margin: 7px;
+  text-align: center;
+  font-size: 1.3rem;
+  color: maroon;
+  cursor: pointer; }
+  .sauce:hover {
+    background-color: #ffd562; }
+  .sauce--selected {
+    background-color: #ffd562; }

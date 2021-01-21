@@ -10,49 +10,42 @@
     '. sauce_heading .'
     '. menu_sauce .';
   min-height: 100vh;
-}
 
-.menu__heading {
-  justify-self: center;
-  align-self: center;
-  font-size: 2.5rem;
-  color: $secondary-color;
-}
+  &__heading {
+    justify-self: center;
+    align-self: center;
+    font-size: 2.5rem;
+    color: $secondary-color;
 
-.menu__heading--pizza {
-  grid-area: pizza_heading;
-}
+    &--pizza {
+      grid-area: pizza_heading;
+    }
 
-.menu__heading--sauce {
-  grid-area: sauce_heading;
-}
+    &--sauce {
+      grid-area: sauce_heading;
+    }
+  }
 
-.menu__list {
-  justify-self: stretch;
-  list-style-type: none;
-  min-width: 260px;
-  padding: 0.5rem 1rem 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: $primary-color;
-}
+  &__list {
+    justify-self: stretch;
+    list-style-type: none;
+    min-width: 260px;
+    padding: 0.5rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-color;
 
-.menu__list--pizza {
-  grid-area: menu_pizza;
-}
+    &--pizza {
+      grid-area: menu_pizza;
+    }
 
-.menu__list--sauce {
-  grid-area: menu_sauce;
-  margin: 0 0 3rem;
-}
-
-.pizza-item,
-.sauce {
-  margin: 7px;
-  font-size: 1.3rem;
-  color: $secondary-color;
+    &--sauce {
+      grid-area: menu_sauce;
+      margin: 0 0 3rem;
+    }
+  }
 }
 
 @media all and (min-width: 500px) {
@@ -64,27 +57,23 @@
       '. menu_pizza .'
       '. sauce_heading .'
       '. menu_sauce .';
-  }
 
-  .menu__list {
-    width: 60%;
-    min-width: 370px;
-    padding: 1rem 1rem 2rem;
-  }
+    &__list {
+      width: 60%;
+      min-width: 370px;
+      padding: 1rem 1rem 2rem;
 
-  .menu__heading {
-    font-size: 3rem;
-  }
+      &--pizza {
+        margin: 0 auto;
+      }
 
-  .pizza-item {
-    font-size: 1.6rem;
-  }
+      &--sauce {
+        margin: 0 auto 3rem;
+      }
+    }
 
-  .menu__list--pizza {
-    margin: 0 auto;
-  }
-
-  .menu__list--sauce {
-    margin: 0 auto 3rem;
+    &__heading {
+      font-size: 3rem;
+    }
   }
 }

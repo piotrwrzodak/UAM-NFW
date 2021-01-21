@@ -29,6 +29,15 @@ $tertiary-color: rgb(62, 92, 37);
   background: white;
 }
 
+.button {
+  color: white;
+  background-color: $tertiary-color;
+  height: 1.9rem;
+  width: 7rem;
+  margin: 5px;
+  cursor: pointer;
+}
+
 @media all and (min-width: 500px) {
   .first-heading {
     font-size: 3.5rem;
@@ -46,3 +55,4 @@ $tertiary-color: rgb(62, 92, 37);
 @import './PizzaList/pizzaList';
 @import './PizzaItem/pizzaItem';
 @import './SauceList/sauceList';
+@import './SauceItem/sauceItem';

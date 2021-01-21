@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export const PizzaItem = ({ pizza, ingredients }) => {
-  return (
-    <>
-      <li className="pizza-item">
-        {pizza.name}, {pizza.price}$
-      </li>
+  const [activeItem, setActiveItem] = useState(null);
 
-      <li>
-        <ul className="pizza-ingredient">
-          {pizza.ingredients.map((i) => (
-            <li className="pizza-ingredient__item" key={i}>
-              {ingredients.byId[i]?.name}
-            </li>
-          ))}
-        </ul>
-      </li>
-    </>
+  return (
+    <li
+      className={activeItem ? 'pizza-item pizza-item--selected' : 'pizza-item'}
+      onClick={(e) => setActiveItem(!activeItem)}
+    >
+      <div className="pizza-item__name">{pizza.name}</div>
+      <ul className="pizza-item__ingredients">
+        {pizza.ingredients.map((i) => (
+          <li className="ingredient" key={i}>
+            {ingredients.byId[i]?.name}
+          </li>
+        ))}
+      </ul>
+      {activeItem && (
+        <div className="pizza-item__open">
+          <button className="button">ADD {pizza.price}.00$</button>
+        </div>
+      )}
+    </li>
   );
 };
