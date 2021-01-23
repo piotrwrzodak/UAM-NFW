@@ -1,16 +1,14 @@
 import React from 'react';
-import { store } from '../../store';
 import { SauceItem } from '../SauceItem';
 
-export const SauceList = ({ addSauce }) => {
-  const state = store.getState();
+export const SauceList = ({ props }) => {
   return (
     <ul className="menu__list menu__list--sauce">
-      {state.data.sauce.allIds.map((id) => (
+      {props.saucesAllIds.map((id) => (
         <SauceItem
-          sauce={state.data.sauce.byId[id]}
+          sauce={props.saucesById[id]}
           key={id}
-          addSauce={addSauce}
+          addSauce={props.addSauceToCart}
         />
       ))}
     </ul>

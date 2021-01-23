@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const PizzaItem = ({ pizza, ingredients, addPizza }) => {
+export const PizzaItem = ({ pizza, props }) => {
   const [activeItem, setActiveItem] = useState(null);
 
   return (
@@ -12,7 +12,7 @@ export const PizzaItem = ({ pizza, ingredients, addPizza }) => {
       <ul className="pizza-item__ingredients">
         {pizza.ingredients.map((i) => (
           <li className="ingredient" key={i}>
-            {ingredients.byId[i]?.name}
+            {props.ingredientsById[i]?.name}
           </li>
         ))}
       </ul>
@@ -21,7 +21,7 @@ export const PizzaItem = ({ pizza, ingredients, addPizza }) => {
           <button
             className="button"
             onClick={() =>
-              addPizza({
+              props.addPizzaToCart({
                 id: `${pizza.id}`,
                 ingredients: `${pizza.ingredients}`,
                 price: pizza.price,

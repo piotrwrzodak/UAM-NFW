@@ -10,9 +10,9 @@ export const Menu = ({ props }) => {
       <Nav />
       <div className="menu">
         <h1 className="menu__heading menu__heading--pizza">Pizza</h1>
-        <PizzaList addPizza={props.addPizzaToCart} />
+        <PizzaList props={props} />
         <h1 className="menu__heading menu__heading--sauce">Sauce</h1>
-        <SauceList addSauce={props.addSauceToCart} />
+        <SauceList props={props} />
       </div>
     </>
   );

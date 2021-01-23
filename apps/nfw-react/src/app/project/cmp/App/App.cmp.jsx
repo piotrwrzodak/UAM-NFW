@@ -19,7 +19,7 @@ export const App = (props) => {
             <Menu props={props} />
           </Route>
           <Route path="/cart">
-            <Cart />
+            <Cart props={props} />
           </Route>
           <Redirect to="/" />
         </Switch>
