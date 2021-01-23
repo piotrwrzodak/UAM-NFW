@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const SauceItem = ({ sauce }) => {
+export const SauceItem = ({ sauce, addSauce }) => {
   const [activeItem, setActiveItem] = useState(null);
 
   return (
@@ -12,7 +12,12 @@ export const SauceItem = ({ sauce }) => {
 
       {activeItem && (
         <div className="sauce__open">
-          <button className="button">ADD {sauce.price}$</button>
+          <button
+            className="button"
+            onClick={() => addSauce({ id: `${sauce.id}`, price: sauce.price })}
+          >
+            ADD {sauce.price}$
+          </button>
         </div>
       )}
     </li>

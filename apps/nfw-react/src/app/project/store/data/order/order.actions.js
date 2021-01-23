@@ -17,3 +17,8 @@ export const addPizza = (value) => ({
   type: orderAT.ADD_PIZZA,
   payload: value,
 });
+
+export const addSauce = (value) => ({
+  type: orderAT.ADD_SAUCE,
+  payload: value,
+});

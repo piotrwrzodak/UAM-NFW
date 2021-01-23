@@ -16,7 +16,7 @@ export const App = (props) => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/menu">
-            <Menu addPizza={props.addPizzaToCart} />
+            <Menu props={props} />
           </Route>
           <Route path="/cart">
             <Cart />
