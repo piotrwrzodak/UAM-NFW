@@ -27,17 +27,44 @@ export const Cart = ({ props }) => {
           {props.order.total ? (
             <ul className="cart__list">
               {props.order.pizza.map((p, i) => (
-                <li className="cart__item" key={i}>
+                <li
+                  className="cart__item"
+                  onClick={() =>
+                    props.deletePizzaFromCart({
+                      id: p.id,
+                      price: props.pizzasById[p.id]?.price,
+                    })
+                  }
+                  key={i}
+                >
                   {props.pizzasById[p.id]?.name}
                 </li>
               ))}
               {props.order.sauce.map((s, i) =>
                 s.count === 1 ? (
-                  <li className="cart__item" key={i}>
+                  <li
+                    className="cart__item"
+                    onClick={() =>
+                      props.deleteSauceFromCart({
+                        id: s.id,
+                        price: props.saucesById[s.id]?.price,
+                      })
+                    }
+                    key={i}
+                  >
                     {props.saucesById[s.id]?.name}
                   </li>
                 ) : (
-                  <li className="cart__item" key={i}>
+                  <li
+                    className="cart__item"
+                    onClick={() =>
+                      props.deleteSauceFromCart({
+                        id: s.id,
+                        price: props.saucesById[s.id]?.price,
+                      })
+                    }
+                    key={i}
+                  >
                     {s.count}x {props.saucesById[s.id]?.name}
                   </li>
                 )

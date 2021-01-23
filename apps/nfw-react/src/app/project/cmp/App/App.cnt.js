@@ -14,7 +14,12 @@ import {
   selectSaucesAllIds,
 } from '../../store/data/sauce/sauce.selectors';
 import { selectOrderState } from '../../store/data/order/order.selectors';
-import { addPizza, addSauce } from '../../store/data/order/order.actions';
+import {
+  addPizza,
+  addSauce,
+  deletePizza,
+  deleteSauce,
+} from '../../store/data/order/order.actions';
 import App from './App.cmp';
 
 const mapState = (state, ownProps) => ({
@@ -31,6 +36,8 @@ const mapDispatch = (dispatch, ownProps) => ({
   init: () => dispatch(initialize),
   addPizzaToCart: (pizza) => dispatch(addPizza(pizza)),
   addSauceToCart: (sauce) => dispatch(addSauce(sauce)),
+  deletePizzaFromCart: (pizza) => dispatch(deletePizza(pizza)),
+  deleteSauceFromCart: (sauce) => dispatch(deleteSauce(sauce)),
 });
 
 // Enhance part

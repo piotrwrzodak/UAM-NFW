@@ -59,6 +59,11 @@
     text-align: center;
     font-size: 1.3rem;
     color: $secondary-color;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: line-through;
+    }
   }
 
   &__empty {

@@ -74,7 +74,10 @@
     margin: 7px;
     text-align: center;
     font-size: 1.3rem;
-    color: maroon; }
+    color: maroon;
+    cursor: pointer; }
+    .cart__item:hover {
+      text-decoration: line-through; }
   .cart__empty {
     display: flex;
     flex-direction: column;
