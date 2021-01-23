@@ -2,7 +2,7 @@ import React from 'react';
 import { store } from '../../store';
 import { PizzaItem } from '../PizzaItem';
 
-export const PizzaList = () => {
+export const PizzaList = ({ addPizza }) => {
   const state = store.getState();
   return (
     <ul className="menu__list menu__list--pizza">
@@ -11,6 +11,7 @@ export const PizzaList = () => {
           key={id}
           pizza={state.data.pizza.byId[id]}
           ingredients={state.data.ingredient}
+          addPizza={addPizza}
         />
       ))}
     </ul>

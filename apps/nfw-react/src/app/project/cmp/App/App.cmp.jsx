@@ -6,7 +6,6 @@ import { Home } from '../Home';
 import { Menu } from '../Menu';
 
 export const App = (props) => {
-
   useEffect(() => {
     props.init();
   }, []);
@@ -17,10 +16,11 @@ export const App = (props) => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/menu">
-            <Menu />
+            <Menu addPizza={props.addPizzaToCart} />
           </Route>
-          <Route path="/cart" component={Cart} />
-
+          <Route path="/cart">
+            <Cart />
+          </Route>
           <Redirect to="/" />
         </Switch>
       </BrowserRouter>

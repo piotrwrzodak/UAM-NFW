@@ -4,6 +4,7 @@ import { initialize } from '../../store/root.actions';
 import { selectIngredientsById } from '../../store/data/ingredient/ingredient.selectors';
 import { selectPizzasById } from '../../store/data/pizza/pizza.selectors';
 import { selectSaucesById } from '../../store/data/sauce/sauce.selectors';
+import { addPizza } from '../../store/data/order/order.actions';
 import App from './App.cmp';
 
 const mapState = (state, ownProps) => ({
@@ -14,6 +15,7 @@ const mapState = (state, ownProps) => ({
 
 const mapDispatch = (dispatch, ownProps) => ({
   init: () => dispatch(initialize),
+  addPizzaToCart: (pizza) => dispatch(addPizza(pizza)),
 });
 
 // Enhance part
