@@ -14,14 +14,6 @@ export function* worker(action) {
   yield put(fetchSauces);
 }
 
-export function* submitWorker(action) {
-  console.log(action.data);
-}
-
 export function* watcher() {
   yield takeEvery([rootAT.INITIALIZE], worker);
-}
-
-export function* submitWatcher() {
-  yield takeEvery([rootAT.SUBMIT], submitWorker);
 }

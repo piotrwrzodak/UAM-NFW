@@ -3,20 +3,20 @@ import { Link } from 'react-router-dom';
 import { Nav } from '../Nav';
 
 export const Cart = ({ props }) => {
-  const submitOrder = () => {
-    fetch('http://localhost:3333/api/order/', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        pizza: [{ id: 'id', ingredients: ['ing1', 'ing2'] }],
-        sauce: [{ id: 'id', count: 3 }],
-        total: 4,
-      }),
-    });
-  };
+  // const submitOrder = () => {
+  //   fetch('http://localhost:3333/api/order/', {
+  //     method: 'POST',
+  //     headers: {
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       pizza: [{ id: 'id', ingredients: ['ing1', 'ing2'] }],
+  //       sauce: [{ id: 'id', count: 3 }],
+  //       total: 4,
+  //     }),
+  //   });
+  // };
   return (
     <>
       <Nav />
@@ -41,7 +41,7 @@ export const Cart = ({ props }) => {
                 </li>
               ))}
               {props.order.sauce.map((s, i) =>
-                s.count === 1 ? (
+                s.count === 0 ? null : s.count === 1 ? (
                   <li
                     className="cart__item"
                     onClick={() =>
@@ -81,7 +81,9 @@ export const Cart = ({ props }) => {
             </div>
           )}
           {props.order.total ? (
-            <button className="button">PAY {props.order.total}$</button>
+            <button className="button" onClick={() => props.postOrder()}>
+              PAY {props.order.total}$
+            </button>
           ) : null}
         </div>
       </div>

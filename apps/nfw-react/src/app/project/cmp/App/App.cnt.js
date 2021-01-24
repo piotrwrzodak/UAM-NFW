@@ -19,6 +19,7 @@ import {
   addSauce,
   deletePizza,
   deleteSauce,
+  postOrder,
 } from '../../store/data/order/order.actions';
 import App from './App.cmp';
 
@@ -38,6 +39,7 @@ const mapDispatch = (dispatch, ownProps) => ({
   addSauceToCart: (sauce) => dispatch(addSauce(sauce)),
   deletePizzaFromCart: (pizza) => dispatch(deletePizza(pizza)),
   deleteSauceFromCart: (sauce) => dispatch(deleteSauce(sauce)),
+  postOrder: () => dispatch(postOrder()),
 });
 
 // Enhance part

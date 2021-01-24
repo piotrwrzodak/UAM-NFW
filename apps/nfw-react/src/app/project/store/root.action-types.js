@@ -3,4 +3,3 @@ const decorateAT = (text) => `[root] ${text}`;
 
 // Action Types
 export const INITIALIZE = decorateAT('initialize');
-export const SUBMIT = decorateAT('submit-order');

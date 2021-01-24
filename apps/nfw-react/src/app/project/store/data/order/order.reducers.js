@@ -12,7 +12,7 @@ export default function orderReducer(state = initialState, action) {
       return Object.assign({}, state, {
         pizza: state.pizza.concat({
           id: action.payload.id,
-          ingredients: action.payload.ingredients,
+          ingredients: [action.payload.ingredients],
         }),
         total: state.total + action.payload.price,
       });
@@ -62,6 +62,17 @@ export default function orderReducer(state = initialState, action) {
           sauce: deleteObject(state.sauce, action),
           total: state.total - action.payload.price,
         };
+      }
+    }
+    // sauce must contain at least 1 elements
+    case orderAT.PREPARE_ORDER: {
+      if (state.sauce.length === 0) {
+        return {
+          ...state,
+          sauce: [{ id: 'no id', count: 0 }],
+        };
+      } else {
+        return state;
       }
     }
     default:
