@@ -14,7 +14,7 @@ export const Cart = ({ props }) => {
           {props.order.total ? (
             <ul className="cart__list">
               {props.order.pizza.map((p, i) => (
-                <AnimatePresence>
+                <AnimatePresence key={i}>
                   <motion.li
                     className="cart__item"
                     whileTap={{ opacity: 0 }}
@@ -28,7 +28,6 @@ export const Cart = ({ props }) => {
                         price: props.pizzasById[p.id]?.price,
                       })
                     }
-                    key={i}
                   >
                     {props.pizzasById[p.id]?.name}
                   </motion.li>
@@ -36,7 +35,7 @@ export const Cart = ({ props }) => {
               ))}
               {props.order.sauce.map((s, i) =>
                 s.count === 0 ? null : s.count === 1 ? (
-                  <AnimatePresence>
+                  <AnimatePresence key={i}>
                     <motion.li
                       className="cart__item"
                       whileTap={{ opacity: 0 }}
@@ -50,13 +49,12 @@ export const Cart = ({ props }) => {
                           price: props.saucesById[s.id]?.price,
                         })
                       }
-                      key={i}
                     >
                       {props.saucesById[s.id]?.name}
                     </motion.li>
                   </AnimatePresence>
                 ) : (
-                  <AnimatePresence>
+                  <AnimatePresence key={i}>
                     <motion.li
                       className="cart__item"
                       whileTap={{ opacity: 0 }}
@@ -70,7 +68,6 @@ export const Cart = ({ props }) => {
                           price: props.saucesById[s.id]?.price,
                         })
                       }
-                      key={i}
                     >
                       {s.count}x {props.saucesById[s.id]?.name}
                     </motion.li>
@@ -79,16 +76,29 @@ export const Cart = ({ props }) => {
               )}
             </ul>
           ) : (
-            <div className="cart__empty">
-              <h1 className="cart__heading cart__heading--one">
-                Your cart is empty
-              </h1>
-              <motion.h1 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <Link to="/menu" className="cart__heading cart__heading--two">
-                  Go back to menu
-                </Link>
-              </motion.h1>
-            </div>
+            <AnimatePresence>
+              <motion.div
+                className="cart__empty"
+                initial={{ scale: 0.7, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{
+                  duration: 0.7,
+                  ease: [0.04, 0.62, 0.23, 0.98],
+                }}
+              >
+                <h1 className="cart__heading cart__heading--one">
+                  Your cart is empty
+                </h1>
+                <motion.h1
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <Link to="/menu" className="cart__heading cart__heading--two">
+                    Go back to menu
+                  </Link>
+                </motion.h1>
+              </motion.div>
+            </AnimatePresence>
           )}
           {props.order.total ? (
             <motion.button

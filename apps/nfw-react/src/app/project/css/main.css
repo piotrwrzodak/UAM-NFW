@@ -61,6 +61,7 @@
     grid-template-columns: 100%;
     justify-content: center;
     padding: 0.5rem 1rem 1rem;
+    border-radius: 15px;
     background-color: #ffbb00; }
   .cart__list {
     width: 100%;
@@ -138,7 +139,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #ffbb00; }
+    background-color: #ffbb00;
+    border-radius: 15px; }
     .menu__list--pizza {
       grid-area: menu_pizza; }
     .menu__list--sauce {
@@ -180,7 +182,7 @@
   font-size: 3rem;
   color: #ffbb00;
   text-align: center;
-  margin: 5px 0; }
+  margin: 1rem 0; }
 
 .hamburger {
   z-index: 1;
@@ -222,6 +224,7 @@
 .pizza-item {
   width: 100%;
   margin: 2px 0;
+  border-radius: 8px;
   cursor: pointer; }
   .pizza-item:hover {
     background-color: #ffc933; }
@@ -260,6 +263,7 @@
   text-align: center;
   font-size: 1.3rem;
   color: maroon;
+  border-radius: 8px;
   cursor: pointer; }
   .sauce:hover {
     background-color: #ffc933; }
