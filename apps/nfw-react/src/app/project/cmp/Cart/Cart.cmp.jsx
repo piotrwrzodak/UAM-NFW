@@ -1,22 +1,9 @@
 import React from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Nav } from '../Nav';
 
 export const Cart = ({ props }) => {
-  // const submitOrder = () => {
-  //   fetch('http://localhost:3333/api/order/', {
-  //     method: 'POST',
-  //     headers: {
-  //       Accept: 'application/json',
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       pizza: [{ id: 'id', ingredients: ['ing1', 'ing2'] }],
-  //       sauce: [{ id: 'id', count: 3 }],
-  //       total: 4,
-  //     }),
-  //   });
-  // };
   return (
     <>
       <Nav />
@@ -27,46 +14,67 @@ export const Cart = ({ props }) => {
           {props.order.total ? (
             <ul className="cart__list">
               {props.order.pizza.map((p, i) => (
-                <li
-                  className="cart__item"
-                  onClick={() =>
-                    props.deletePizzaFromCart({
-                      id: p.id,
-                      price: props.pizzasById[p.id]?.price,
-                    })
-                  }
-                  key={i}
-                >
-                  {props.pizzasById[p.id]?.name}
-                </li>
+                <AnimatePresence>
+                  <motion.li
+                    className="cart__item"
+                    whileTap={{ opacity: 0 }}
+                    transition={{
+                      duration: 0.8,
+                      ease: [0.04, 0.62, 0.23, 0.98],
+                    }}
+                    onClick={() =>
+                      props.deletePizzaFromCart({
+                        id: p.id,
+                        price: props.pizzasById[p.id]?.price,
+                      })
+                    }
+                    key={i}
+                  >
+                    {props.pizzasById[p.id]?.name}
+                  </motion.li>
+                </AnimatePresence>
               ))}
               {props.order.sauce.map((s, i) =>
                 s.count === 0 ? null : s.count === 1 ? (
-                  <li
-                    className="cart__item"
-                    onClick={() =>
-                      props.deleteSauceFromCart({
-                        id: s.id,
-                        price: props.saucesById[s.id]?.price,
-                      })
-                    }
-                    key={i}
-                  >
-                    {props.saucesById[s.id]?.name}
-                  </li>
+                  <AnimatePresence>
+                    <motion.li
+                      className="cart__item"
+                      whileTap={{ opacity: 0 }}
+                      transition={{
+                        duration: 0.8,
+                        ease: [0.04, 0.62, 0.23, 0.98],
+                      }}
+                      onClick={() =>
+                        props.deleteSauceFromCart({
+                          id: s.id,
+                          price: props.saucesById[s.id]?.price,
+                        })
+                      }
+                      key={i}
+                    >
+                      {props.saucesById[s.id]?.name}
+                    </motion.li>
+                  </AnimatePresence>
                 ) : (
-                  <li
-                    className="cart__item"
-                    onClick={() =>
-                      props.deleteSauceFromCart({
-                        id: s.id,
-                        price: props.saucesById[s.id]?.price,
-                      })
-                    }
-                    key={i}
-                  >
-                    {s.count}x {props.saucesById[s.id]?.name}
-                  </li>
+                  <AnimatePresence>
+                    <motion.li
+                      className="cart__item"
+                      whileTap={{ opacity: 0 }}
+                      transition={{
+                        duration: 0.8,
+                        ease: [0.04, 0.62, 0.23, 0.98],
+                      }}
+                      onClick={() =>
+                        props.deleteSauceFromCart({
+                          id: s.id,
+                          price: props.saucesById[s.id]?.price,
+                        })
+                      }
+                      key={i}
+                    >
+                      {s.count}x {props.saucesById[s.id]?.name}
+                    </motion.li>
+                  </AnimatePresence>
                 )
               )}
             </ul>
@@ -75,15 +83,22 @@ export const Cart = ({ props }) => {
               <h1 className="cart__heading cart__heading--one">
                 Your cart is empty
               </h1>
-              <Link to="/menu" className="cart__heading cart__heading--two">
-                Go back to menu
-              </Link>
+              <motion.h1 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                <Link to="/menu" className="cart__heading cart__heading--two">
+                  Go back to menu
+                </Link>
+              </motion.h1>
             </div>
           )}
           {props.order.total ? (
-            <button className="button" onClick={() => props.postOrder()}>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="button"
+              onClick={() => props.postOrder()}
+            >
               PAY {props.order.total}$
-            </button>
+            </motion.button>
           ) : null}
         </div>
       </div>

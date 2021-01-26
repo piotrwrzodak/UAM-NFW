@@ -11,7 +11,7 @@
 
 .second-heading {
   font-size: 2.5rem;
-  color: #ffc82f; }
+  color: #ffbb00; }
 
 .container {
   min-height: 100vh;
@@ -19,7 +19,7 @@
 
 .button {
   color: white;
-  background-color: #3e5c25;
+  background-color: #3c3c14;
   height: 1.9rem;
   width: 7rem;
   margin: 5px auto;
@@ -51,7 +51,7 @@
     .cart__heading--two {
       font-size: 1.3rem; }
       .cart__heading--two:hover {
-        color: #3e5c25; }
+        color: #3c3c14; }
   .cart__container {
     grid-area: cart_container;
     justify-self: stretch;
@@ -61,7 +61,7 @@
     grid-template-columns: 100%;
     justify-content: center;
     padding: 0.5rem 1rem 1rem;
-    background-color: #ffc82f; }
+    background-color: #ffbb00; }
   .cart__list {
     width: 100%;
     list-style-type: none;
@@ -138,7 +138,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #ffc82f; }
+    background-color: #ffbb00; }
     .menu__list--pizza {
       grid-area: menu_pizza; }
     .menu__list--sauce {
@@ -169,7 +169,7 @@
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  background-color: #3e5c25;
+  background-color: #3c3c14;
   transform: translateX(100vw);
   transition: 0.5s ease-out; }
   .nav.show {
@@ -178,7 +178,7 @@
 
 .nav__link {
   font-size: 3rem;
-  color: #ffc82f;
+  color: #ffbb00;
   text-align: center;
   margin: 5px 0; }
 
@@ -193,7 +193,7 @@
     width: 28px;
     height: 3px;
     margin: 0 0 5px 0;
-    background: #ffc82f;
+    background: #ffbb00;
     transition: 0.5s ease-out; }
   .hamburger.close {
     transform: rotate(180deg); }
@@ -224,9 +224,9 @@
   margin: 2px 0;
   cursor: pointer; }
   .pizza-item:hover {
-    background-color: #ffd562; }
+    background-color: #ffc933; }
   .pizza-item--selected {
-    background-color: #ffd562; }
+    background-color: #ffc933; }
   .pizza-item__open {
     display: flex;
     justify-content: center;
@@ -243,7 +243,7 @@
 
 .ingredient {
   margin: 0 3px 5px;
-  color: #3e5c25;
+  color: #3c3c14;
   font-size: 0.9rem; }
 
 @media all and (min-width: 500px) {
@@ -262,6 +262,8 @@
   color: maroon;
   cursor: pointer; }
   .sauce:hover {
-    background-color: #ffd562; }
+    background-color: #ffc933; }
   .sauce--selected {
-    background-color: #ffd562; }
+    background-color: #ffc933; }
+  .sauce__open {
+    overflow: hidden; }
