@@ -3,6 +3,7 @@
   margin: 2px 0;
   border-radius: 8px;
   cursor: pointer;
+  overflow: hidden;
 
   &:hover {
     background-color: lighten($primary-color, 10%);
@@ -16,6 +17,24 @@
     display: flex;
     justify-content: center;
     align-content: center;
+    flex-direction: column;
+    overflow: hidden;
+
+    .additional-ingredients {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      flex-direction: column;
+      list-style-type: none;
+      overflow: hidden;
+
+      &__item {
+        display: grid;
+        margin-left: 15%;
+      }
+    }
   }
 
   &__name {
@@ -47,5 +66,9 @@
   }
   .ingredient {
     font-size: 1.3rem;
+  }
+
+  .additional-ingredients {
+    list-style-type: none;
   }
 }

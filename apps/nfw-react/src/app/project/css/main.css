@@ -225,7 +225,8 @@
   width: 100%;
   margin: 2px 0;
   border-radius: 8px;
-  cursor: pointer; }
+  cursor: pointer;
+  overflow: hidden; }
   .pizza-item:hover {
     background-color: #ffc933; }
   .pizza-item--selected {
@@ -233,7 +234,21 @@
   .pizza-item__open {
     display: flex;
     justify-content: center;
-    align-content: center; }
+    align-content: center;
+    flex-direction: column;
+    overflow: hidden; }
+    .pizza-item__open .additional-ingredients {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      flex-direction: column;
+      list-style-type: none;
+      overflow: hidden; }
+      .pizza-item__open .additional-ingredients__item {
+        display: grid;
+        margin-left: 15%; }
   .pizza-item__name {
     margin: 7px;
     text-align: center;
@@ -255,7 +270,9 @@
   .pizza-item__name {
     font-size: 1.6rem; }
   .ingredient {
-    font-size: 1.3rem; } }
+    font-size: 1.3rem; }
+  .additional-ingredients {
+    list-style-type: none; } }
 
 .sauce {
   width: 100%;

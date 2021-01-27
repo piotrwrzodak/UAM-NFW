@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Form, Formik, Field, useFormikContext } from 'formik';
 
 export const PizzaItem = ({ pizza, props }) => {
   const [activeItem, setActiveItem] = useState(null);
+  const [additionalIngredientsPrice, setAdditionalIngredientsPrice] = useState(
+    0
+  );
 
   return (
     <li
       className={activeItem ? 'pizza-item pizza-item--selected' : 'pizza-item'}
-      onClick={(e) => setActiveItem(!activeItem)}
     >
-      <motion.div className="pizza-item__name">{pizza.name}</motion.div>
+      <motion.div
+        className="pizza-item__name"
+        onClick={() => setActiveItem(!activeItem)}
+      >
+        {pizza.name}
+      </motion.div>
       <ul className="pizza-item__ingredients">
         {pizza.ingredients.map((i) => (
           <li className="ingredient" key={i}>
@@ -31,6 +39,56 @@ export const PizzaItem = ({ pizza, props }) => {
             transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
             key={pizza.id}
           >
+            <AnimatePresence>
+              <Formik
+                initialValues={{
+                  checked: [],
+                }}
+              >
+                {({ values }) => (
+                  <Form>
+                    <motion.ul className="additional-ingredients">
+                      {props.ingredientsAllIds.map((ing) => {
+                        return (
+                          <motion.li
+                            className="additional-ingredients__item"
+                            key={ing}
+                          >
+                            <motion.label className="checkbox">
+                              <Field
+                                type="checkbox"
+                                name="checked"
+                                value={props.ingredientsById[ing]?.id}
+                                onClick={() => {
+                                  if (
+                                    values.checked.includes(
+                                      props.ingredientsById[ing]?.id
+                                    )
+                                  ) {
+                                    setAdditionalIngredientsPrice(
+                                      additionalIngredientsPrice -
+                                        props.ingredientsById[ing]?.price
+                                    );
+                                  } else {
+                                    setAdditionalIngredientsPrice(
+                                      additionalIngredientsPrice +
+                                        props.ingredientsById[ing]?.price
+                                    );
+                                  }
+                                }}
+                              />
+                              <span></span>
+                              {props.ingredientsById[ing]?.name}
+                            </motion.label>
+                          </motion.li>
+                        );
+                      })}
+                    </motion.ul>
+                  </Form>
+                )}
+              </Formik>
+            </AnimatePresence>
+
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -43,7 +101,7 @@ export const PizzaItem = ({ pizza, props }) => {
                 })
               }
             >
-              ADD {pizza.price}.00$
+              ADD {pizza.price + additionalIngredientsPrice}.00$
             </motion.button>
           </motion.div>
         )}
