@@ -76,9 +76,19 @@
     text-align: center;
     font-size: 1.3rem;
     color: maroon;
-    cursor: pointer; }
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; }
     .cart__item:hover {
       text-decoration: line-through; }
+    .cart__item .extra-ingredients {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center; }
+      .cart__item .extra-ingredients__item {
+        margin-left: 5px;
+        font-size: 0.7rem; }
   .cart__empty {
     display: flex;
     flex-direction: column;
@@ -100,7 +110,10 @@
       font-size: 2rem; }
     .cart__item {
       margin: 5px;
-      font-size: 1.5rem; } }
+      font-size: 1.5rem; }
+      .cart__item .extra-ingredients__item {
+        margin-left: 5px;
+        font-size: 0.9rem; } }
 
 .home-container {
   height: 100vh;
@@ -164,6 +177,7 @@
       font-size: 3rem; } }
 
 .nav {
+  z-index: 1;
   position: fixed;
   display: flex;
   justify-content: center;
@@ -185,7 +199,7 @@
   margin: 1rem 0; }
 
 .hamburger {
-  z-index: 1;
+  z-index: 2;
   right: 30px;
   top: 30px;
   position: absolute;

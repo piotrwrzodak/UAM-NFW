@@ -29,7 +29,22 @@ export const Cart = ({ props }) => {
                       })
                     }
                   >
-                    {props.pizzasById[p.id]?.name}
+                    <p>{props.pizzasById[p.id]?.name}</p>
+                    <ul className="extra-ingredients">
+                      {props.pizzasById[p.id].ingredients.length !==
+                        p.ingredients.length && (
+                        <li className="extra-ingredients__item">+</li>
+                      )}
+                      {p.ingredients.map((ing, i) => {
+                        if (props.pizzasById[p.id].ingredients.length <= i) {
+                          return (
+                            <li className="extra-ingredients__item" key={i}>
+                              {props.ingredientsById[ing].name}
+                            </li>
+                          );
+                        }
+                      })}
+                    </ul>
                   </motion.li>
                 </AnimatePresence>
               ))}

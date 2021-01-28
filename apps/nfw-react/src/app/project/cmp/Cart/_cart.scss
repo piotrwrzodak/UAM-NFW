@@ -60,9 +60,23 @@
     font-size: 1.3rem;
     color: $secondary-color;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
 
     &:hover {
       text-decoration: line-through;
+    }
+
+    .extra-ingredients {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      &__item {
+        margin-left: 5px;
+        font-size: 0.7rem;
+      }
     }
   }
 
@@ -99,6 +113,13 @@
     &__item {
       margin: 5px;
       font-size: 1.5rem;
+
+      .extra-ingredients {
+        &__item {
+          margin-left: 5px;
+          font-size: 0.9rem;
+        }
+      }
     }
   }
 }
