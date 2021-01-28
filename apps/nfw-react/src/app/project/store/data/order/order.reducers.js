@@ -1,4 +1,5 @@
 import * as orderAT from './order.action-types';
+import { v4 } from 'uuid';
 
 const initialState = {
   pizza: [],
@@ -12,7 +13,7 @@ export default function orderReducer(state = initialState, action) {
       return Object.assign({}, state, {
         pizza: state.pizza.concat({
           id: action.payload.id,
-          ingredients: [action.payload.ingredients],
+          ingredients: action.payload.ingredients,
         }),
         total: state.total + action.payload.price,
       });
@@ -37,9 +38,11 @@ export default function orderReducer(state = initialState, action) {
       }
     }
     case orderAT.DELETE_PIZZA: {
+      let newArray = state.pizza.slice();
+      newArray.splice(action.payload.index, 1);
       return {
         ...state,
-        pizza: deleteObject(state.pizza, action),
+        pizza: newArray,
         total: state.total - action.payload.price,
       };
     }

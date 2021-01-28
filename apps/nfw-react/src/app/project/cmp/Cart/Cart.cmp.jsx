@@ -25,7 +25,7 @@ export const Cart = ({ props }) => {
                     onClick={() =>
                       props.deletePizzaFromCart({
                         id: p.id,
-                        price: props.pizzasById[p.id]?.price,
+                        ingredients: p.ingredients,
                       })
                     }
                   >

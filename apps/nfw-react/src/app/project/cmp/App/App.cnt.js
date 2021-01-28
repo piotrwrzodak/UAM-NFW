@@ -17,7 +17,7 @@ import { selectOrderState } from '../../store/data/order/order.selectors';
 import {
   addPizza,
   addSauce,
-  deletePizza,
+  deletePizzaBoosted,
   deleteSauce,
   postOrder,
 } from '../../store/data/order/order.actions';
@@ -37,7 +37,7 @@ const mapDispatch = (dispatch, ownProps) => ({
   init: () => dispatch(initialize),
   addPizzaToCart: (pizza) => dispatch(addPizza(pizza)),
   addSauceToCart: (sauce) => dispatch(addSauce(sauce)),
-  deletePizzaFromCart: (pizza) => dispatch(deletePizza(pizza)),
+  deletePizzaFromCart: (pizza) => dispatch(deletePizzaBoosted(pizza)),
   deleteSauceFromCart: (sauce) => dispatch(deleteSauce(sauce)),
   postOrder: () => dispatch(postOrder()),
 });

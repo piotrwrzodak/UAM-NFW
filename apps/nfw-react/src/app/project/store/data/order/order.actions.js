@@ -20,6 +20,36 @@ export const deleteSauce = (value) => ({
   payload: value,
 });
 
+export const deletePizzaBoosted = (value) => {
+  // value => id, ingredients
+  return (dispatch, getState) => {
+    const state = getState();
+
+    // get index of pizza to delete from order
+    let index;
+    state.data.order.pizza.map((pizza, i) => {
+      if (
+        pizza.id === value.id &&
+        JSON.stringify(pizza.ingredients) === JSON.stringify(value.ingredients)
+      ) {
+        index = i;
+      }
+    });
+
+    let price = 0;
+    // get extra ingredient price
+    state.data.order.pizza[index].ingredients.map((ing, i) => {
+      if (state.data.pizza.byId[value.id].ingredients.length <= i) {
+        price += state.data.ingredient.byId[ing].price;
+      }
+    });
+    // get pizza price
+    price += state.data.pizza.byId[value.id].price;
+
+    dispatch(deletePizza({ index: index, price: price }));
+  };
+};
+
 export const postOrder = () => {
   return (dispatch, getState) => {
     dispatch(prepareOrder());
