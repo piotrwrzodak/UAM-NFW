@@ -235,8 +235,7 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    flex-direction: column;
-    overflow: hidden; }
+    flex-direction: column; }
     .pizza-item__open .additional-ingredients {
       width: 100%;
       height: auto;
@@ -247,8 +246,56 @@
       list-style-type: none;
       overflow: hidden; }
       .pizza-item__open .additional-ingredients__item {
-        display: grid;
-        margin-left: 15%; }
+        margin-left: 20%;
+        margin-bottom: 2px;
+        overflow: hidden; }
+        .pizza-item__open .additional-ingredients__item .checkbox-container {
+          overflow: hidden;
+          font-size: 1rem;
+          color: #3c3c14;
+          display: block;
+          position: relative;
+          padding-left: 30px;
+          margin-bottom: 12px;
+          cursor: pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none; }
+          .pizza-item__open .additional-ingredients__item .checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0; }
+          .pizza-item__open .additional-ingredients__item .checkbox-container .checkbox {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 18px;
+            width: 18px;
+            background-color: #ffbb00;
+            border: 2px #3c3c14 solid; }
+          .pizza-item__open .additional-ingredients__item .checkbox-container:hover input ~ .checkbox {
+            background-color: maroon; }
+          .pizza-item__open .additional-ingredients__item .checkbox-container input:checked ~ .checkbox {
+            background-color: maroon; }
+          .pizza-item__open .additional-ingredients__item .checkbox-container .checkbox:after {
+            content: '';
+            position: absolute;
+            display: none; }
+          .pizza-item__open .additional-ingredients__item .checkbox-container input:checked ~ .checkbox:after {
+            display: block; }
+          .pizza-item__open .additional-ingredients__item .checkbox-container .checkbox:after {
+            left: 3px;
+            top: 3px;
+            width: 4px;
+            height: 6px;
+            border: solid yellow;
+            border-width: 0 2px 2px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg); }
   .pizza-item__name {
     margin: 7px;
     text-align: center;
@@ -258,21 +305,34 @@
     display: flex;
     flex-direction: row;
     justify-content: center; }
-
-.ingredient {
-  margin: 0 3px 5px;
-  color: #3c3c14;
-  font-size: 0.9rem; }
+    .pizza-item__ingredients .ingredient {
+      margin: 0 3px 5px;
+      color: #3c3c14;
+      font-size: 0.9rem; }
 
 @media all and (min-width: 500px) {
-  .pizza-ingredient__item {
-    font-size: 1.4rem; }
+  .pizza-item__open .additional-ingredients {
+    list-style-type: none; }
+    .pizza-item__open .additional-ingredients__item .checkbox-container {
+      font-size: 1.3rem; }
+      .pizza-item__open .additional-ingredients__item .checkbox-container .checkbox {
+        height: 24px;
+        width: 24px;
+        border: 2px #3c3c14 solid; }
+      .pizza-item__open .additional-ingredients__item .checkbox-container .checkbox:after {
+        left: 7px;
+        top: 4px;
+        width: 5px;
+        height: 10px;
+        border: solid yellow;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg); }
   .pizza-item__name {
     font-size: 1.6rem; }
-  .ingredient {
-    font-size: 1.3rem; }
-  .additional-ingredients {
-    list-style-type: none; } }
+  .pizza-item__ingredients .ingredient {
+    font-size: 1.3rem; } }
 
 .sauce {
   width: 100%;

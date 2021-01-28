@@ -27,93 +27,90 @@ export const PizzaItem = ({ pizza, props }) => {
       </ul>
       <AnimatePresence>
         {activeItem && (
-          <motion.div
-            className="pizza-item__open"
-            initial="closed"
-            exit="closed"
-            animate={activeItem ? 'open' : 'closed'}
-            variants={{
-              open: { opacity: 1, height: 'auto' },
-              closed: { opacity: 0, height: 0 },
+          <Formik
+            initialValues={{
+              checked: [],
             }}
-            transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
-            key={pizza.id}
+            onSubmit={(values) => {
+              console.log(`${pizza.ingredients.concat(values.checked).sort()}`);
+              console.log(pizza.price + additionalIngredientsPrice);
+              if (additionalIngredientsPrice === 0) {
+                props.addPizzaToCart({
+                  id: `${pizza.id}`,
+                  ingredients: pizza.ingredients,
+                  price: pizza.price,
+                });
+              } else {
+                props.addPizzaToCart({
+                  id: `${pizza.id}`,
+                  ingredients: pizza.ingredients.concat(values.checked),
+                  price: pizza.price + additionalIngredientsPrice,
+                });
+              }
+            }}
           >
-            <Formik
-              initialValues={{
-                checked: [],
-              }}
-              onSubmit={(values) => {
-                console.log(
-                  `${pizza.ingredients.concat(values.checked).sort()}`
-                );
-                console.log(pizza.price + additionalIngredientsPrice);
-                if (additionalIngredientsPrice === 0) {
-                  props.addPizzaToCart({
-                    id: `${pizza.id}`,
-                    ingredients: pizza.ingredients,
-                    price: pizza.price,
-                  });
-                } else {
-                  props.addPizzaToCart({
-                    id: `${pizza.id}`,
-                    ingredients: pizza.ingredients.concat(values.checked),
-                    price: pizza.price + additionalIngredientsPrice,
-                  });
-                }
-              }}
-            >
-              {(p) => (
-                <Form onSubmit={p.handleSubmit}>
-                  <motion.ul className="additional-ingredients">
-                    {props.ingredientsAllIds.map((ing) => {
-                      return (
-                        <motion.li
-                          className="additional-ingredients__item"
-                          key={ing}
-                        >
-                          <motion.label className="checkbox">
-                            <Field
-                              type="checkbox"
-                              name="checked"
-                              value={props.ingredientsById[ing]?.id}
-                              onClick={() => {
-                                if (
-                                  p.values.checked.includes(
-                                    props.ingredientsById[ing]?.id
-                                  )
-                                ) {
-                                  setAdditionalIngredientsPrice(
-                                    additionalIngredientsPrice -
-                                      props.ingredientsById[ing]?.price
-                                  );
-                                } else {
-                                  setAdditionalIngredientsPrice(
-                                    additionalIngredientsPrice +
-                                      props.ingredientsById[ing]?.price
-                                  );
-                                }
-                              }}
-                            />
-                            <span></span>
-                            {props.ingredientsById[ing]?.name}
-                          </motion.label>
-                        </motion.li>
-                      );
-                    })}
-                  </motion.ul>
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="button"
-                    type="submit"
-                  >
-                    ADD {pizza.price + additionalIngredientsPrice}.00$
-                  </motion.button>
-                </Form>
-              )}
-            </Formik>
-          </motion.div>
+            {(p) => (
+              <motion.form
+                onSubmit={p.handleSubmit}
+                className="pizza-item__open"
+                initial="closed"
+                exit="closed"
+                animate={activeItem ? 'open' : 'closed'}
+                variants={{
+                  open: { opacity: 1, height: 'auto' },
+                  closed: { opacity: 0, height: 0 },
+                }}
+                transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
+                key={pizza.id}
+              >
+                <motion.ul className="additional-ingredients">
+                  {props.ingredientsAllIds.map((ing) => {
+                    return (
+                      <motion.li
+                        className="additional-ingredients__item"
+                        key={ing}
+                      >
+                        <motion.label className="checkbox-container">
+                          {props.ingredientsById[ing]?.name}
+                          <Field
+                            type="checkbox"
+                            name="checked"
+                            value={props.ingredientsById[ing]?.id}
+                            onClick={() => {
+                              if (
+                                p.values.checked.includes(
+                                  props.ingredientsById[ing]?.id
+                                )
+                              ) {
+                                setAdditionalIngredientsPrice(
+                                  additionalIngredientsPrice -
+                                    props.ingredientsById[ing]?.price
+                                );
+                              } else {
+                                setAdditionalIngredientsPrice(
+                                  additionalIngredientsPrice +
+                                    props.ingredientsById[ing]?.price
+                                );
+                              }
+                            }}
+                          />
+                          <span className="checkbox"></span>
+                        </motion.label>
+                      </motion.li>
+                    );
+                  })}
+                </motion.ul>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="button"
+                  type="submit"
+                >
+                  ADD {pizza.price + additionalIngredientsPrice}.00$
+                </motion.button>
+              </motion.form>
+            )}
+          </Formik>
         )}
       </AnimatePresence>
     </li>
