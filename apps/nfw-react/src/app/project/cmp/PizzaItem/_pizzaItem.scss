@@ -1,8 +1,7 @@
 .pizza-item {
   width: 100%;
-  margin: 2px 0;
+  margin: 5px 0;
   border-radius: 8px;
-  cursor: pointer;
   overflow: hidden;
 
   &:hover {
@@ -28,6 +27,13 @@
       flex-direction: column;
       list-style-type: none;
       overflow: hidden;
+
+      &__heading {
+        font-size: 1rem;
+        margin: 10px 5%;
+        color: $secondary-color;
+        overflow: hidden;
+      }
 
       &__item {
         margin-left: 20%;
@@ -85,7 +91,7 @@
           }
 
           .checkbox:after {
-            left: 3px;
+            left: 3.5px;
             top: 3px;
             width: 4px;
             height: 6px;
@@ -105,6 +111,7 @@
     text-align: center;
     font-size: 1.3rem;
     color: $secondary-color;
+    cursor: pointer;
   }
 
   &__ingredients {
@@ -126,16 +133,21 @@
       .additional-ingredients {
         list-style-type: none;
 
+        &__heading {
+          font-size: 1.4rem;
+          margin: 10px 5%;
+        }
+
         &__item {
           .checkbox-container {
             font-size: 1.3rem;
-  
+
             .checkbox {
               height: 24px;
               width: 24px;
               border: 2px $tertiary-color solid;
             }
-  
+
             .checkbox:after {
               left: 7px;
               top: 4px;

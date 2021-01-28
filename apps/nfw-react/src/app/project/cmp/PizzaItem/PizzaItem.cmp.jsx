@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Form, Formik, Field } from 'formik';
+import { Formik, Field } from 'formik';
 
 export const PizzaItem = ({ pizza, props }) => {
   const [activeItem, setActiveItem] = useState(null);
@@ -32,20 +32,20 @@ export const PizzaItem = ({ pizza, props }) => {
               checked: [],
             }}
             onSubmit={(values) => {
-              console.log(`${pizza.ingredients.concat(values.checked).sort()}`);
-              console.log(pizza.price + additionalIngredientsPrice);
               if (additionalIngredientsPrice === 0) {
                 props.addPizzaToCart({
                   id: `${pizza.id}`,
                   ingredients: pizza.ingredients,
                   price: pizza.price,
                 });
+                setTimeout(() => setActiveItem(!activeItem), 250);
               } else {
                 props.addPizzaToCart({
                   id: `${pizza.id}`,
                   ingredients: pizza.ingredients.concat(values.checked),
                   price: pizza.price + additionalIngredientsPrice,
                 });
+                setTimeout(() => setActiveItem(!activeItem), 250);
               }
             }}
           >
@@ -64,6 +64,9 @@ export const PizzaItem = ({ pizza, props }) => {
                 key={pizza.id}
               >
                 <motion.ul className="additional-ingredients">
+                  <p className="additional-ingredients__heading">
+                    Additional ingredients:
+                  </p>
                   {props.ingredientsAllIds.map((ing) => {
                     return (
                       <motion.li

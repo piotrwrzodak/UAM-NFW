@@ -22,10 +22,11 @@
   background-color: #3c3c14;
   height: 1.9rem;
   width: 7rem;
-  margin: 5px auto;
+  margin: 5px auto 1rem;
   text-align: center;
   cursor: pointer;
-  align-self: center; }
+  align-self: center;
+  overflow: hidden; }
 
 @media all and (min-width: 500px) {
   .first-heading {
@@ -168,7 +169,7 @@
     .menu__list {
       width: 60%;
       min-width: 370px;
-      padding: 1rem 1rem 2rem; }
+      padding: 1rem 5% 2rem; }
       .menu__list--pizza {
         margin: 0 auto; }
       .menu__list--sauce {
@@ -187,6 +188,7 @@
   width: 100vw;
   background-color: #3c3c14;
   transform: translateX(100vw);
+  overflow: hidden;
   transition: 0.5s ease-out; }
   .nav.show {
     transform: translateX(0);
@@ -237,9 +239,8 @@
 
 .pizza-item {
   width: 100%;
-  margin: 2px 0;
+  margin: 5px 0;
   border-radius: 8px;
-  cursor: pointer;
   overflow: hidden; }
   .pizza-item:hover {
     background-color: #ffc933; }
@@ -259,6 +260,11 @@
       flex-direction: column;
       list-style-type: none;
       overflow: hidden; }
+      .pizza-item__open .additional-ingredients__heading {
+        font-size: 1rem;
+        margin: 10px 5%;
+        color: maroon;
+        overflow: hidden; }
       .pizza-item__open .additional-ingredients__item {
         margin-left: 20%;
         margin-bottom: 2px;
@@ -301,7 +307,7 @@
           .pizza-item__open .additional-ingredients__item .checkbox-container input:checked ~ .checkbox:after {
             display: block; }
           .pizza-item__open .additional-ingredients__item .checkbox-container .checkbox:after {
-            left: 3px;
+            left: 3.5px;
             top: 3px;
             width: 4px;
             height: 6px;
@@ -314,7 +320,8 @@
     margin: 7px;
     text-align: center;
     font-size: 1.3rem;
-    color: maroon; }
+    color: maroon;
+    cursor: pointer; }
   .pizza-item__ingredients {
     display: flex;
     flex-direction: row;
@@ -327,6 +334,9 @@
 @media all and (min-width: 500px) {
   .pizza-item__open .additional-ingredients {
     list-style-type: none; }
+    .pizza-item__open .additional-ingredients__heading {
+      font-size: 1.4rem;
+      margin: 10px 5%; }
     .pizza-item__open .additional-ingredients__item .checkbox-container {
       font-size: 1.3rem; }
       .pizza-item__open .additional-ingredients__item .checkbox-container .checkbox {
@@ -362,3 +372,5 @@
     background-color: #ffc933; }
   .sauce__open {
     overflow: hidden; }
+  .sauce__name {
+    margin-top: 5px; }

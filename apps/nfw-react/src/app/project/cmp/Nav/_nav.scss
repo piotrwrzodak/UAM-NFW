@@ -9,6 +9,7 @@
   width: 100vw;
   background-color: $tertiary-color;
   transform: translateX(100vw);
+  overflow: hidden;
   @include easeOut;
 
   &.show {

@@ -35,10 +35,11 @@ $tertiary-color: rgb(60, 60, 20);
   background-color: $tertiary-color;
   height: 1.9rem;
   width: 7rem;
-  margin: 5px auto;
+  margin: 5px auto 1rem;
   text-align: center;
   cursor: pointer;
   align-self: center;
+  overflow: hidden;
 }
 
 @media all and (min-width: 500px) {
