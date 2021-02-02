@@ -42,6 +42,10 @@
     border-radius: 15px;
 
     background-color: $primary-color;
+
+    &--empty {
+      grid-template-rows: 90% 10%;
+    }
   }
 
   &__list {

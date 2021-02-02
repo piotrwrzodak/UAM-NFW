@@ -10,7 +10,13 @@ export const Cart = ({ props }) => {
 
       <div className="cart">
         <h1 className="cart__heading">Your order:</h1>
-        <div className="cart__container">
+        <div
+          className={
+            props.order.total
+              ? 'cart__container'
+              : 'cart__container cart__container--empty'
+          }
+        >
           {props.order.total ? (
             <ul className="cart__list">
               {props.order.pizza.map((p, i) => (
