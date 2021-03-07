@@ -11,7 +11,7 @@
 
 .second-heading {
   font-size: 2.5rem;
-  color: #ffbb00; }
+  color: #ffcb3b; }
 
 .container {
   min-height: 100vh;
@@ -26,7 +26,8 @@
   text-align: center;
   cursor: pointer;
   align-self: center;
-  overflow: hidden; }
+  overflow: hidden;
+  border-radius: 5px; }
 
 @media all and (min-width: 500px) {
   .first-heading {
@@ -63,7 +64,7 @@
     justify-content: center;
     padding: 0.5rem 1rem 1rem;
     border-radius: 15px;
-    background-color: #ffbb00; }
+    background-color: #ffcb3b; }
     .cart__container--empty {
       grid-template-rows: 90% 10%; }
   .cart__list {
@@ -155,7 +156,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #ffbb00;
+    background-color: #ffcb3b;
     border-radius: 15px; }
     .menu__list--pizza {
       grid-area: menu_pizza; }
@@ -198,7 +199,7 @@
 
 .nav__link {
   font-size: 3rem;
-  color: #ffbb00;
+  color: #ffcb3b;
   text-align: center;
   margin: 1rem 0; }
 
@@ -213,7 +214,7 @@
     width: 28px;
     height: 3px;
     margin: 0 0 5px 0;
-    background: #ffbb00;
+    background: #ffcb3b;
     transition: 0.5s ease-out; }
   .hamburger.close {
     transform: rotate(180deg); }
@@ -245,9 +246,9 @@
   border-radius: 8px;
   overflow: hidden; }
   .pizza-item:hover {
-    background-color: #ffc933; }
+    background-color: #ffd255; }
   .pizza-item--selected {
-    background-color: #ffc933; }
+    background-color: #ffd255; }
   .pizza-item__open {
     display: flex;
     justify-content: center;
@@ -296,7 +297,7 @@
             left: 0;
             height: 18px;
             width: 18px;
-            background-color: #ffbb00;
+            background-color: #ffcb3b;
             border: 2px #3c3c14 solid; }
           .pizza-item__open .additional-ingredients__item .checkbox-container:hover input ~ .checkbox {
             background-color: maroon; }
@@ -369,9 +370,9 @@
   border-radius: 8px;
   cursor: pointer; }
   .sauce:hover {
-    background-color: #ffc933; }
+    background-color: #ffd255; }
   .sauce--selected {
-    background-color: #ffc933; }
+    background-color: #ffd255; }
   .sauce__open {
     overflow: hidden; }
   .sauce__name {

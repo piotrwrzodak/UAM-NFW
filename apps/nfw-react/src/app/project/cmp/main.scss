@@ -1,4 +1,5 @@
-$primary-color: #ffbb00;
+//$primary-color: #ffbb00;
+$primary-color: #ffcb3b;
 $secondary-color: maroon;
 $tertiary-color: rgb(60, 60, 20);
 //$tertiary-color: rgb(62, 92, 37);
@@ -40,6 +41,7 @@ $tertiary-color: rgb(60, 60, 20);
   cursor: pointer;
   align-self: center;
   overflow: hidden;
+  border-radius: 5px;
 }
 
 @media all and (min-width: 500px) {
